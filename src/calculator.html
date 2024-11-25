@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 7jkl | Calculator</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body
+  class="bg-primary max-h-full justify-center items-center h-full sm:h-full md:h-full sm:p-4 md:p-4 p-4 m-auto rounded-lg shadow-lg text-white font-pregular text-lg sm:overflow-scroll md:overflow-scroll overflow-scroll">
+  <header>
+    <div
+      class="h-full max-h-full p-4 rounded-lg shadow border-2 border-gray-700 dark:border-gray-800 bg-gray-700 dark:bg-gray-800">
+      <h2 class="text-2xl font-bold">
+        Lesson 07: Functions - 'updateCalculation' and reuse the code.
+      </h2>
+      <hr class="my-4" />
+      <div class="mt-6">
+        <p>
+          This exercise 7j, 7k, and 7l are about creating a calculator project. The calculator project is coming from
+          the exercise 5r (Calculator project with duplication code). The exercise 7j is about creating a function to
+          update the calculation. The exercise 7k is about creating a function to update the display. The exercise 7l is
+          about reusing the code from the exercise 7j and 7k to create a calculator project. The challenges are to
+          update the existing duplicate code to the function as the below guidances:
+        </p>
+        <p>
+        <ul class="list-outside list-none space-y-3 indent-1 ml-4">
+          <li class="lightgreen-list-item mt-3 mr-4">Create a function called 'updateCalculation' that takes a value
+            and appends it to the calculation variable.
+            <ul class="list-outside list-none space-y-3 indent-1 ml-4">
+              <li class="tickgreen-list-item mt-3 mr-4">Notice there's a lot of duplicated code in the buttons. You
+                can use the 'updateCalculation' function to reduce the duplication.</li>
+              <li class="tickgreen-list-item mt-3 mr-4">Create 'updateCalculation' function and reuse the code and
+                append
+                it to the calculation variable.</li>
+            </ul>
+          </li>
+          <li class="lightgreen-list-item mt-3 mr-4">Create a copy of the Cart Quantity project from exercise 6l.
+            <ul class="list-outside list-none space-y-3 indent-1 ml-4">
+              <li class="tickgreen-list-item mt-3 mr-4">Create an 'updateCartQuantity' function that takes a value and
+                appends it to the cart quantity variable.</li>
+            </ul>
+          </li>
+          <li class="lightgreen-list-item mt-3 mr-4">Modify the 'updateCartQuantity' function from 7h so that if the
+            quantity is invalid, alert(); and then return; (this is called an early return). An early return make our
+            code cleaner because we can remove the 'else-if' / 'else' block.</li>
+          </li>
+        </ul>
+        </p>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section>
+      <div
+        class="h-full max-h-full mt-3 p-4 rounded-lg shadow border-2 border-gray-700 dark:border-gray-800 bg-gray-700 dark:bg-gray-800">
+        <h2 class="text-2xl font-bold">Exercise 7j from the Exercise 5r : 'updateCalculation' function</h2>
+      </div>
+      <div class="flex justify-center items-center">
+        <div class="flex flex-col mt-6 mb-6 border-2 border-gray-800 w-96 rounded-lg shadow-lg content-center">
+          <div class=" from-100%">
+            <label class="hidden" for="display">Display:</label>
+            <input type="text" id="display" name="display" value="" placeholder="0"
+              class="w-auto ml-3 p-4 mt-3 text-2xl font-bold rounded-lg text-white shadow border-2 border-gray-500 dark:border-gray-600 bg-gray-700 dark:bg-gray-800" />
+          </div>
+          <div class="flex flex-row mt-3 gap-3 items-center justify-center content-center">
+            <button class="border-2 border-gray-700 dark:bg-gray-800 text-2xl font-bold round-calc-button" title="One"
+              onclick="
+                      updateCalculation('1');
+                  ">1</button>
+            <button class="border-2 border-gray-700 dark:bg-gray-800 text-2xl font-bold round-calc-button" title="Two"
+              onclick="
+                      updateCalculation('2');
+                  ">2</button>
+            <button class="border-2 border-gray-700 dark:bg-gray-800 text-2xl font-bold round-calc-button" title="Three"
+              onclick="
+                      updateCalculation('3');
+                  ">3</button>
+            <button class="border-2 border-gray-700 dark:bg-orange-600 text-2xl font-bold round-calc-button" title="Add"
+              onclick="
+                      updateCalculation('+');
+                  ">+</button>
+          </div>
+          <div class="flex flex-row mt-3 gap-3 items-center justify-center content-center">
+            <button class="border-2 border-gray-700 dark:bg-gray-800 text-2xl font-bold round-calc-button" title="Four"
+              onclick="
+                      updateCalculation('4');
+                  ">4</button>
+            <button class="border-2 border-gray-700 dark:bg-gray-800 text-2xl font-bold round-calc-button" title="Five"
+              onclick="
+                      updateCalculation('5');
+                  ">5</button>
+            <button class="border-2 border-gray-700 dark:bg-gray-800 text-2xl font-bold round-calc-button" title="Six"
+              onclick="
+                      updateCalculation('6');
+                  ">6</button>
+            <button class="border-2 border-gray-700 dark:bg-orange-600 text-2xl font-bold round-calc-button"
+              title="Subtract" onclick="
+                      updateCalculation('-');
+                  ">-</button>
+          </div>
+          <div class="flex flex-row mt-3 gap-3 items-center justify-center content-center">
+            <button class="border-2 border-gray-700 dark:bg-gray-800 text-2xl font-bold round-calc-button" title="Seven"
+              onclick="
+                      updateCalculation('7');
+                  ">7</button>
+            <button class="border-2 border-gray-700 dark:bg-gray-800 text-2xl font-bold round-calc-button" title="Eight"
+              onclick="
+                      updateCalculation('8');
+                  ">8</button>
+            <button class="border-2 border-gray-700 dark:bg-gray-800 text-2xl font-bold round-calc-button" title="Nine"
+              onclick="
+                      updateCalculation('9');
+                  ">9</button>
+            <button class="border-2 border-gray-700 dark:bg-orange-600 text-2xl font-bold round-calc-button"
+              title="Multiply" onclick="
+                      updateCalculation('*');
+                  ">*</button>
+          </div>
+          <div class="flex flex-row mt-3 gap-3 items-center justify-center content-center">
+            <button class="border-2 border-gray-700 dark:bg-gray-800 text-2xl font-bold round-calc-button" title="Zero"
+              onclick="
+                      updateCalculation('0');
+                  ">0</button>
+            <button class="border-2 border-gray-700 dark:bg-gray-800 text-2xl font-bold round-calc-button"
+              title="Decimal" onclick="
+                      updateCalculation('.');
+                  ">.</button>
+            <button class="border-2 border-gray-700 dark:bg-orange-600 text-2xl font-bold round-calc-button"
+              title="Calculate" onclick="
+                      // Note: eval() takes a string and runs it as code.
+                      // Avoid using eval() in real world projects since
+                      // it can potentially be given harmful code to run.
+                      // Only use eval() for learning purposes.              
+                      calculation = eval(calculation);
+                      display.value = calculation;
+                      console.log(calculation);
+                    ">=</button>
+            <button class="border-2 border-gray-700 dark:bg-orange-600 text-2xl font-bold round-calc-button"
+              title="Divide" onclick="
+                      updateCalculation('/');
+                  ">/</button>
+          </div>
+          <div class="ml-5 mt-3 gap-3 mb-6 border-2 border-gray-700 dark:bg-gray-800 round-calc-button">
+            <button
+              class="border-2 border-gray-700 dark:bg-gray-800 font-bold round-calc-button text-center content-center"
+              title="Clear" onclick="
+                    calculation = '';
+                    display.value = calculation; 
+                    console.log(calculation);
+                  ">Clear</button>
+          </div>
+        </div>
+      </div>
+      <section>
+        <div
+          class="h-full max-h-full mt-3 p-4 rounded-lg shadow border-2 border-gray-700 dark:border-gray-800 bg-gray-700 dark:bg-gray-800">
+          <div class="flex justify-center items-center">
+            <section
+              class="bg-primary w-full h-full p-4 m-auto rounded-lg shadow-lg border-2 border-gray-200 text-white font-pregular text-lg mt-1 mb-6 dark:border-gray-700 dark:bg-gray-800">
+              <h2 class="text-2xl font-bold tracking-tight text-blue-400">
+                Output Ground:
+              </h2>
+              <hr class="mt-4 line-clamp-1" />
+              <div id="log"
+                class="flex flex-col justify-between p-4 leading-normal object-cover w-full m-auto font-normal text-gray-700 dark:text-gray-400">
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+      <div class="mt-6 flex flex-row justify-end items-end border-2 border-gray-800 shadow bg-gray-800 rounded-lg">
+        <button class="back-to-home-button text-white font-pblack bg-sky-600 mt-2 mb-2 mr-2" title="Back to home"
+          onclick="window.location.href = `${window.location.origin}/index.html`">
+          Back to home
+        </button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div
+      class="p-4 flex flex-col items-start justify-start mt-3 rounded-lg shadow border-2 border-gray-700 dark:border-gray-800 bg-gray-700 dark:bg-gray-800">
+      <p class="font-bold hidden">Footer</p>
+      <p class="text-right">
+        Copyright &copy; <span class="text-red-500" id="year">2024</span>
+      </p>
+      <p class="text-right">All Rights Reserved</p>
+    </div>
+  </footer>
+  <script>
+    // JavaScript code goes here
+    // Capture the original console.log function
+    const originalLog = console.log;
+    // Override the console.log function
+    console.log = (...messages) => {
+      // Call the original console.log function to keep the log in the console
+      originalLog.apply(console, messages);
+      // Convert messages to a string and append them to the div
+      const logDiv = document.getElementById('log');
+      if (logDiv) {
+        messages.forEach((message) => {
+          const messageElement = document.createElement('div');
+          messageElement.textContent = message.toString();
+          logDiv.appendChild(messageElement);
+        });
+      }
+    };
+    /* /////////////////////////////////////////////// */
+    // Footer year
+    const year = document.getElementById('year');
+    const currentYear = new Date().getFullYear();
+    // year.setAttribute('daretime', currentYear.toString());
+    year.setAttribute('datetime', currentYear.toString());
+    year.textContent = currentYear.toString();
+    /* /////////////////////////////////////////////////// */
+
+    let calculation = '';
+    const display = document.getElementById('display');
+    function updateCalculation(value) {
+      calculation += value;
+      display.value = calculation;
+      console.log(calculation);
+    }
+  </script>
+</body>
+
+</html>

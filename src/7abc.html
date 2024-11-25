@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 7 Exercises - Functions | Simple Parameter</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body
+  class="bg-primary max-h-full justify-center items-center h-full sm:h-full md:h-full sm:p-4 md:p-4 p-4 m-auto rounded-lg shadow-lg text-white font-pregular text-lg sm:overflow-scroll md:overflow-scroll overflow-scroll">
+  <div id="app" class="flex flex-col">
+    <header>
+      <div
+        class="h-full max-h-full p-4 rounded-lg shadow border-2 border-gray-700 dark:border-gray-800 bg-gray-700 dark:bg-gray-800">
+        <h2 class="text-2xl font-bold">Lesson 07: Functions | Simple Parameter in JavaScript</h2>
+        <hr class="my-4" />
+        <div class="mt-6">
+          <p>
+            In this Exercise, we create a 'greet' function that display the messages 'Hello!' in the console. Then, we
+            call and run this function a few times using greet(). We also create a 'greetName' function that takes a
+            name parameter and display the message `Hello, ${name}!` in the console. We call and run this function a few
+            times using greetName('Sisovin'). Lastly, we try calling the greetName function without passing the
+            parameter 'name' (it will display 'Hello, undefined!') and Modify the function so that if 'name' undefined
+            (it will display 'Hello, there!') instead in the console.
+            <strong class="text-danger">Hint:</strong> use an if-Statement. Since undefined is falsy value, you can use:
+            if (!name) { ... } to check if the name is undefined).
+          </p>
+          <p>
+          <ul class="list-outside list-none space-y-3 indent-1 ml-4">
+            <li class="checkmark-list-item mt-3 mr-4">'greet' function that display the messages 'Hello!' in the
+              console.</li>
+            <li class="checkmark-list-item mt-3 mr-4">'greetName' function that takes a 'name' parameter display the
+              message `Hello, ${name}!` in the console. </li>
+            <li class="checkmark-list-item mt-3 mr-4">'greetName' function without passing the parameter 'name' (it will
+              display 'Hello, undefined!') and Modify the function so that if 'name' undefined (it will display 'Hello,
+              there!') instead in the console.</li>
+          </ul>
+          </p>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="bg-gray-700 dark:bg-gray-800 rounded-lg border border-gray-700 mt-3 p-4">
+          <h2 class="font-bold">Exercise 6a, 6b and 6c</h2>
+          <div class="mt-6 flex flex-row justify-center items-center gap-3 w-full">
+            <section
+              class="bg-primary w-full h-full p-4 m-auto rounded-lg shadow-lg border-2 border-gray-200 text-white font-pregular text-lg mt-1 mb-6 dark:border-gray-700 dark:bg-gray-800">
+              <h2 class="text-2xl font-bold tracking-tight text-blue-400">
+                Output Ground:
+              </h2>
+              <hr class="mt-4 line-clamp-1" />
+              <div id="log"
+                class="flex flex-col justify-between p-4 leading-normal object-cover w-full m-auto font-normal text-gray-700 dark:text-gray-400">
+              </div>
+            </section>
+          </div>
+          <div class="flex flex-row justify-end items-end">
+            <button class="back-to-home-button text-white bg-blue-600" title="Back to home"
+              onclick="window.location.href = `${window.location.origin}/index.html`">
+              Back to home
+            </button>
+          </div>
+      </section>
+    </main>
+    <footer>
+      <div
+        class="p-4 flex flex-col items-start justify-start mt-4 rounded-lg shadow border-2 border-gray-700 dark:border-gray-800 bg-gray-700 dark:bg-gray-800">
+        <p class="font-bold hidden">Footer</p>
+        <p class="text-right">
+          Copyright &copy; <span class="text-red-500" id="year"></span>
+        </p>
+        <p class="text-right">All Rights Reserved</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    // Capture the original console.log function
+    const originalLog = console.log;
+    // Override the console.log function
+    console.log = (...messages) => {
+      // Call the original console.log function to keep the log in the console
+      originalLog.apply(console, messages);
+      // Convert messages to a string and append them to the div
+      const logDiv = document.getElementById('log');
+      if (logDiv) {
+        messages.forEach((message) => {
+          const messageElement = document.createElement('div');
+          messageElement.textContent = message.toString();
+          logDiv.appendChild(messageElement);
+        });
+      }
+    };
+    /* /////////////////////////////////////////////// */
+    // Footer year
+    const year = document.getElementById('year');
+    const currentYear = new Date().getFullYear();
+    // year.setAttribute('daretime', currentYear.toString());
+    year.setAttribute('datetime', currentYear.toString());
+    year.textContent = currentYear.toString();
+    /* /////////////////////////////////////////////////// */
+
+    console.log('// Exercise 7a, 7b and 7c');
+    // Exercise 7a
+    function greet() {
+      console.log('Hello!');
+    }
+    greet();
+    greet();
+    greet();
+    // Exercise 7b
+    function greetName(name) {
+      console.log(`Hello ${name}!`);
+    }
+    greetName('Sisovin');
+    greetName('Sovanny');
+    greetName('Viphop');
+
+    // Exercise 7c
+    console.log("// Modify the function so that if 'name' undefined (it will display 'Hello, there!') instead in the console.");
+    function greetName(name) {
+      if (!name) {
+        console.log('Hi there!');
+      } else {
+        console.log(`Hello ${name}!`);
+      }
+    }
+    greetName();
+  </script>
+</body>
+
+</html>

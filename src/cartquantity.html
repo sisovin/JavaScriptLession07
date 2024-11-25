@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 7k Functions | updateCartQuantity</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body
+  class="bg-primary max-h-full justify-center items-center h-full sm:h-full md:h-full sm:p-4 md:p-4 p-4 m-auto rounded-lg shadow-lg text-white font-pregular text-lg sm:overflow-scroll md:overflow-scroll overflow-scroll">
+  <div id="#app" class="flex flex-col">
+    <header>
+      <div
+        class="h-full max-h-full p-4 rounded-lg shadow border-2 border-gray-700 dark:border-gray-800 bg-gray-700 dark:bg-gray-800">
+        <h2 class="text-2xl font-bold">
+          Lesson 07: Functions - 'updateCartQuantity' and reuse the code.
+        </h2>
+        <hr class="my-4" />
+        <div class="mt-6">
+          <p>
+            This exercise 7k is about creating a function called 'updateCartQuantity' that will update the cart quantity
+          </p>
+          <p>
+          <ul class="list-outside list-none space-y-3 indent-1 ml-4">
+            <li class="lightgreen-list-item mt-3 mr-4">Create a copy of the Cart Quantity project from exercise 6l.
+              <ul class="list-outside list-none space-y-3 indent-1 ml-4">
+                <li class="tickgreen-list-item mt-3 mr-4">Create an 'updateCartQuantity' function that takes a value and
+                  appends it to the cart quantity variable.</li>
+              </ul>
+            </li>
+            <li class="lightgreen-list-item mt-3 mr-4">Modify the 'updateCartQuantity' function from 7h so that if the
+              quantity is invalid, alert(); and then return; (this is called an early return). An early return make our
+              code cleaner because we can remove the 'else-if' / 'else' block.</li>
+            </li>
+          </ul>
+          </p>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="bg-gray-700 dark:bg-gray-800 rounded-lg border border-gray-700 mt-3 p-4">
+          <h2 class="font-bold text-3xl text-sky-600">Cart Quantity</h2>
+          <div
+            class="mt-6 lg:flex lg:flex-row justify-center items-center gap-3 sm:flex-col lg:space-y-0 md:flex-col space-y-3">
+            <button class="show-qty-button text-white bg-red-500" title="Show Quantity" onclick="                      
+              console.log(`Cart Quantity: ${cartQuantity}`);                      
+            ">Show Quantity</button>
+            <button class="add-to-cart-button text-black bg-yellow-500" title="Add to cart" onclick="
+              updateCartQuantity(1);
+            ">Add to cart</button>
+            <button class="plus-two-button text-black bg-orange-500" title="Plus Two" onclick="
+              updateCartQuantity(2);
+            ">+2</button>
+            <button class="plus-three-button text-black bg-green-600" title="Plus Three" onclick="
+              updateCartQuantity(3);
+            ">+3</button>
+            <button class="plus-four-button text-white bg-sky-600" title="Plus Four" onclick="
+              updateCartQuantity(4);            
+            ">+4</button>
+            <button class="plus-five-button text-black bg-yellow-400" title="Plus Five" onclick="
+              updateCartQuantity(5);          
+            ">+5</button>
+          </div>
+          <div
+            class="mt-6 lg:flex lg:flex-row justify-center items-center gap-3 sm:flex-col lg:space-y-0 md:flex-col space-y-3">
+            <button class="remove-from-cart-button text-white bg-primary" title="Remove from cart" onclick="
+              updateCartQuantity(-1);
+            ">Remove from cart</button>
+            <button class="minus-two-button text-white bg-orange-500" title="Minus Two" onclick="
+              updateCartQuantity(-2);
+            ">-2</button>
+            <button class="minus-three-button text-white bg-blue-600" title="Minus Three" onclick="
+              updateCartQuantity(-3);
+            ">-3</button>
+            <!-- // End of Exercise 6l -->
+            <button class="reset-button text-white bg-indigo-800" title="Reset Cart" onclick="
+              cartQuantity = 0;
+              console.log('Cart was reset.');
+              console.log(`Cart Quantity: ${cartQuantity}`);                
+            ">Reset Cart</button>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="bg-gray-700 dark:bg-gray-800 rounded-lg border border-gray-700 mt-3 p-4">
+          <!--  <h2 class="font-bold">Exercise 7k, and 7l</h2> -->
+          <div class="flex justify-center items-center">
+            <section
+              class="bg-primary w-full h-full p-4 m-auto rounded-lg shadow-lg border-2 border-gray-200 text-white font-pregular text-lg mt-1 mb-6 dark:border-gray-700 dark:bg-gray-800">
+              <h2 class="text-2xl font-bold tracking-tight text-blue-400">
+                Output Ground:
+              </h2>
+              <hr class="mt-4 line-clamp-1" />
+              <div id="log" class="flex flex-col justify-between border-2 border-gray-600 mt-2 rounded-lg sm:rounded-sm md:rounded-md shadow indent-3 leading-normal object-cover w-full m-auto font-normal
+                              text-gray-700 dark:text-gray-400">
+                <h3 id="title">
+                </h3>
+              </div>
+            </section>
+          </div>
+          <div class="flex justify-end items-end">
+            <button class="back-to-home-button text-white bg-blue-600" title="Back to home"
+              onclick="window.location.href = `${window.location.origin}/index.html`">
+              Back to home
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div
+        class="p-4 flex flex-col items-start justify-start mt-4 rounded-lg shadow border-2 border-gray-700 dark:border-gray-800 bg-gray-700 dark:bg-gray-800">
+        <p class="font-bold hidden">Footer</p>
+        <p class="text-right">
+          Copyright &copy; <span class="text-red-500" id="year"></span>
+        </p>
+        <p class="text-right">All Rights Reserved</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    // Capture the original console.log function
+    const originalLog = console.log;
+
+    // Display Title for the log messages in the console and style them
+    const title = 'Exercise 7k, and 7l';
+    const titleElement = document.createElement('h1');
+    titleElement.style = 'background-color: #161622; font-size: 1.5em; font-weight: bold; color: darkorange; text-align: center; padding: 5px; height: 2em; justify-content: center; align-items: center; display: flex;';
+    document.getElementById('title').appendChild(titleElement);
+    titleElement.textContent = title;
+    // Override the console.log function
+    console.log = (...messages) => {
+      // Call the original console.log function to keep the log in the console
+      originalLog.apply(console, messages);
+
+      // Convert messages to a string and append them to the div
+      const logDiv = document.getElementById('log');
+      if (logDiv) {
+        messages.forEach((message) => {
+          const messageElement = document.createElement('div');
+          // Style the log messages
+          const style = 'background-color: #161622; color: whitesmoke; font-weight: normal; font-style: normal; font-size: 1em; text-align: left; padding: 5px; margin: 1px; border-radius: 5px;';
+          messageElement.style = style;
+          messageElement.textContent = message.toString();
+          logDiv.appendChild(messageElement);
+        });
+      }
+    };
+    /* /////////////////////////////////////////////// */
+    // Footer year
+    const year = document.getElementById('year');
+    const currentYear = new Date().getFullYear();
+    // year.setAttribute('daretime', currentYear.toString());
+    year.setAttribute('datetime', currentYear.toString());
+    year.textContent = currentYear.toString();
+    /* /////////////////////////////////////////////////// */
+    let cartQuantity = 0;
+    console.log("// Exercise 7k - Create a copy of the Cart Quantity project from exercise 6l.");
+
+    /* function updateCartQuantity(change) {
+        if (cartQuantity + change > 10) {
+          alert('The cart is full');
+
+        } else if (cartQuantity + change < 0) {
+          alert('Not enough items in the cart');
+
+        } else {
+          cartQuantity += change;
+          console.log(`Cart quantity: ${cartQuantity}`);
+        }
+      } */
+    console.log("// Exercise 7l - Modify the 'updateCartQuantity' function from 7h so that if the quantity is invalid, alert(); and then return; (this is called an early return). An early return make our code cleaner because we can remove the 'else-if' / 'else' block.");
+    function updateCartQuantity(change) {
+      if (cartQuantity + change > 10) {
+        alert('The cart is full');
+        return;
+      }
+
+      if (cartQuantity + change < 0) {
+        alert('Not enough items in the cart');
+        return;
+      }
+
+      cartQuantity += change;
+      console.log(`Cart quantity: ${cartQuantity}`);
+    }
+  </script>
+</body>
+
+</html>

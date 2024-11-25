@@ -1,0 +1,460 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #161622;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.darkorange-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+}
+
+.red-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+}
+
+.yellow-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+}
+
+.click-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  width: 150px;
+  max-width: 100%;
+}
+
+.add-to-cart-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  width: 150px;
+  max-width: 100%;
+}
+
+.buy-now-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  width: 150px;
+  max-width: 100%;
+}
+
+.cart-qty-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.show-qty-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.plus-two-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.plus-three-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.plus-four-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.plus-five-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.remove--from-cart-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.minus-two-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.minus-three-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.reset-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.one-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.two-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.three-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.plus-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.minus-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+.equal-button {
+  border-radius: 8px;
+  border: 2px solid #161622;
+  max-width: 100%;
+}
+
+
+/* Start Rock Paper Scissors */
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.move-icon {
+  height: 50px;
+}
+
+.round-calc-button {
+  background-color: transparent;
+  border-radius: 100%;
+  border: 1px solid darkgray;
+  width: 78px;
+  height: 78px;
+  cursor: pointer;
+}
+
+.circle-button {
+  /* border-radius: 9999px; */
+  background-color: transparent;
+  border: 3px solid whitesmoke;
+  width: 120px;
+  height: 120px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.result {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.score {
+  margin-top: 60px;
+}
+
+.checkmark-list-item {
+  list-style-type: none;
+  /* Remove default list marker */
+  background-image: url('/src/assets/images/green-check-mark.png');
+  background-size: 24px 24px;
+  /* Adjust size as needed */
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  /* Increased padding to fit the background image and add space */
+  background-position: 0 top;
+  /* Adjusts the bullet to be vertically centered */
+  margin-bottom: 12px;
+  /* Adjust padding to fit the background image */
+}
+
+.lightgreen-list-item {
+  list-style-type: none;
+  /* Remove default list marker */
+  background-image: url('/src/assets/images/lightgreen-check-mark.png');
+  background-size: 22px 22px;
+  /* Adjust size as needed */
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  /* Increased padding to fit the background image and add space */
+  background-position: 0 top;
+  /* Adjusts the bullet to be vertically centered */
+  margin-bottom: 12px;
+  /* Adjust padding to fit the background image */
+}
+
+.roundgreen-list-item {
+  list-style-type: none;
+  /* Remove default list marker */
+  background-image: url('/src/assets/images/roundgreen-check-mark.png');
+  background-size: 24px 24px;
+  /* Adjust size as needed */
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  /* Increased padding to fit the background image and add space */
+  background-position: 0 top;
+  /* Adjusts the bullet to be vertically centered */
+  margin-bottom: 12px;
+  /* Adjust padding to fit the background image */
+}
+
+.tickgreen-list-item {
+  list-style-type: none;
+  /* Remove default list marker */
+  background-image: url('/src/assets/images/tickgreen-check-mark.png');
+  background-size: 24px 24px;
+  /* Adjust size as needed */
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  /* Increased padding to fit the background image and add space */
+  background-position: 0 top;
+  /* Adjusts the bullet to be vertically centered */
+  margin-bottom: 12px;
+  /* Adjust padding to fit the background image */
+}
+
+.reset-score-button,
+.auto-play-button {
+  background-color: white;
+  border: none;
+  font-size: 15px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+/* End Rock Paper Scissors */
+/* Cart Layout */
+.cat-a-picture {
+  width: 250px;
+  border-radius: 15px;
+}
+
+.cat-b-picture {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cat-c-picture {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  object-fit: cover;
+  object-position: center;
+}
+
+input-d {
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(200, 200, 200);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 8px;
+}
+
+input-e {
+  font-size: 16px;
+  width: 500px;
+  border: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 30px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+p {
+  font-family: Arial;
+  color: whitesmoke;
+  /* rgb(100, 100, 100); */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.label {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.text-box {
+  font-size: 16px;
+  width: 400px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(100, 100, 100);
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.disclaimer {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.join-button {
+  background-color: rgb(10, 102, 194);
+  color: white;
+  border: none;
+  font-size: 20px;
+  width: 400px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-radius: 30px;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 25px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.text-box {
+  font-size: 18px;
+  border: none;
+  width: 300px;
+  vertical-align: middle;
+}
+
+.tweet-button {
+  background-color: rgb(29, 155, 240);
+  color: white;
+  border: none;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+/* End Cart Layout */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: whitesmoke;
+    background-color: #161622;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}

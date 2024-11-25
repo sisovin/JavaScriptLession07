@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 7def | Convert Temperature</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body
+  class="bg-primary max-h-full justify-center items-center h-full sm:h-full md:h-full sm:p-4 md:p-4 p-4 m-auto rounded-lg shadow-lg text-white font-pregular text-lg sm:overflow-scroll md:overflow-scroll overflow-scroll">
+  <div id="app" class="flex flex-col">
+    <header>
+      <div
+        class="h-full max-h-full p-4 rounded-lg shadow border-2 border-gray-700 dark:border-gray-800 bg-gray-700 dark:bg-gray-800">
+        <h2 class="text-2xl font-bold">
+          Lesson 07: Functions | Multiple Parameter with Temperature Conversion in JavaScript
+        </h2>
+        <hr class="my-4" />
+        <div class="mt-6">
+          <p>
+            This exercise 7d create 'convertToFahrenheit' function that takes a 'celsius' parameter and returns a number
+            in degrees Fahrenheit. Then, conditions are checked and the result is displayed in the console as the
+            followings:
+          </p>
+          <p>
+          <ul class="list-outside list-none space-y-3 indent-1 ml-4">
+            <li class="lightgreen-list-item mt-3 mr-4">The formula to convert Celsius to Fahrenheit is: (celsius * 9/5)
+              + 32.</li>
+            <li class="lightgreen-list-item mt-3 mr-4">Create a function called 'convertToFahrenheit(25)'=> 77</li>
+            </li>
+          </ul>
+          </p>
+          <br />
+          <div>
+            <p>
+              With the exercise 7e, create 'convertToCelsius' function that takes a 'fahrenheit' parameter and returns
+              a number in degrees Celsius. Then, conditions are checked and the result is displayed in the console as
+              the followings:
+            </p>
+            <p>
+            <ul class="list-outside list-none space-y-3 indent-1 ml-4">
+              <li class="lightgreen-list-item mt-3 mr-4">The formula to convert Fahrenheit to Celsius is: (fahrenheit -
+                32) * 5/9.</li>
+              </li>
+              <li class="lightgreen-list-item mt-3 mr-4">
+                Create a function called 'convertToCelsius(86)'=> 30
+              </li>
+            </ul>
+            </p>
+          </div>
+          <br />
+          <div>
+            <p>
+              With the exercise 7f, create 'convertTemperature' function that takes a 'degrees' and 'unit' parameter
+              with a number and a unit('C' for Celsius, 'F' for Fahrenheit) and returns a number in degrees Fahrenheit
+              or Celsius. Then, conditions are checked and the result is displayed in the console as the followings:
+            </p>
+            <p>
+            <ul class="list-outside list-none space-y-3 indent-1 ml-4">
+              <li class="lightgreen-list-item mt-3 mr-4">Create a function called 'convertTemperature(25, 'C')'=> '77F'
+              </li>
+              </li>
+              <li class="lightgreen-list-item mt-3 mr-4">
+                Create a function called 'convertTemperature(86, 'F')'=> '30C'
+              </li>
+            </ul>
+            </p>
+          </div>
+        </div>
+    </header>
+    <main>
+      <section>
+        <div class="bg-gray-700 dark:bg-gray-800 rounded-lg border border-gray-700 mt-3 p-4">
+          <h2 class="font-bold">Exercise 6d, and 6e</h2>
+          <div class="flex justify-center items-center">
+            <section
+              class="bg-primary w-full h-full p-4 m-auto rounded-lg shadow-lg border-2 border-gray-200 text-white font-pregular text-lg mt-1 mb-6 dark:border-gray-700 dark:bg-gray-800">
+              <h2 class="text-2xl font-bold tracking-tight text-blue-400">
+                Output Ground:
+              </h2>
+              <hr class="mt-4 line-clamp-1" />
+              <div id="log"
+                class="flex flex-col justify-between p-4 leading-normal object-cover w-full m-auto font-normal text-gray-700 dark:text-gray-400">
+              </div>
+            </section>
+          </div>
+          <div class="flex justify-end items-end">
+            <button class="back-to-home-button text-white bg-blue-600" title="Back to home"
+              onclick="window.location.href = `${window.location.origin}/index.html`">
+              Back to home
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div
+        class="p-4 flex flex-col items-start justify-start mt-4 rounded-lg shadow border-2 border-gray-700 dark:border-gray-800 bg-gray-700 dark:bg-gray-800">
+        <p class="font-bold hidden">Footer</p>
+        <p class="text-right">
+          Copyright &copy; <span class="text-red-500" id="year"></span>
+        </p>
+        <p class="text-right">All Rights Reserved</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    // Capture the original console.log function
+    const originalLog = console.log;
+    // Override the console.log function
+    console.log = (...messages) => {
+      // Call the original console.log function to keep the log in the console
+      originalLog.apply(console, messages);
+      // Convert messages to a string and append them to the div
+      const logDiv = document.getElementById('log');
+      if (logDiv) {
+        messages.forEach((message) => {
+          const messageElement = document.createElement('div');
+          messageElement.textContent = message.toString();
+          logDiv.appendChild(messageElement);
+        });
+      }
+    };
+    /* /////////////////////////////////////////////// */
+    // Footer year
+    const year = document.getElementById('year');
+    const currentYear = new Date().getFullYear();
+    // year.setAttribute('daretime', currentYear.toString());
+    year.setAttribute('datetime', currentYear.toString());
+    year.textContent = currentYear.toString();
+    /* /////////////////////////////////////////////////// */
+
+
+    console.log("// Exercise 7d Convert Celsius to Fahrenheit");
+    function convertToFahrenheit(celsius) {
+      return celsius * 9 / 5 + 32;
+    }
+    console.log(convertToFahrenheit(25)); // Output: 77
+
+    console.log("// Exercise 7e Convert Fahrenheit to Celsius");
+    function convertToCelsius(fahrenheit) {
+      return (fahrenheit - 32) * 5 / 9;
+    }
+    console.log(convertToCelsius(86)); // Output: 30
+
+    console.log("// Exercise 7f Convert Temperature");
+    function convertTemperature(degrees, unit) {
+      if (unit === 'C') {
+        return convertToFahrenheit(degrees) + 'F';
+      } else if (unit === 'F') {
+        return convertToCelsius(degrees) + 'C';
+      } else {
+        return 'Invalid unit';
+      }
+    }
+    console.log(convertTemperature(25, 'C')); // Output: 77F
+    console.log(convertTemperature(86, 'F')); // Output: 30C
+  </script>
+</body>
+
+</html>

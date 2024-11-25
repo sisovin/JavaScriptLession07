@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 7ghi | Function on Length Conversion</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body
+  class="bg-primary max-h-full justify-center items-center h-full sm:h-full md:h-full sm:p-4 md:p-4 p-4 m-auto rounded-lg shadow-lg text-white font-pregular text-lg sm:overflow-scroll md:overflow-scroll overflow-scroll">
+  <div id="#app" class="flex flex-col">
+    <header>
+      <div
+        class="h-full max-h-full p-4 rounded-lg shadow border-2 border-gray-700 dark:border-gray-800 bg-gray-700 dark:bg-gray-800">
+        <h2 class="text-2xl font-bold">
+          Lesson 07: Function on Length Conversion in JavaScript
+        </h2>
+        <hr class="my-4" />
+        <div class="mt-6">
+          <p>
+            This exercise 7g create 'convertLength' function that takes a 'length', 'from' and 'to' parameter with a
+            number and a unit('km' for kilometers, or 'miles') and convert the length to kilometers or miles. <strong
+              class=" text-danger">Note:</strong> 1 mile is equal to 1.6 km (approximately). Then, conditions are
+            checked and the result is displayed in the console as the followings:
+          </p>
+          <p>
+          <ul class="list-outside list-none space-y-3 indent-1 ml-4">
+            <li class="lightgreen-list-item mt-3 mr-4">convertLength(50, 'km', 'miles') => '80 km'</li>
+            <li class="lightgreen-list-item mt-3 mr-4">convertLength(32, 'miles', 'km') => '20 miles'</li>
+            <li class="lightgreen-list-item mt-3 mr-4">convertLength(50, 'km', 'km') => '50 km'</li>
+          </ul>
+          </p>
+        </div>
+        <br />
+        <div>
+          <p>
+            With the exercise 7h, update the 'convertLength' function to support converting between km, miles, and also
+            feet. <strong class=" text-danger">Note:</strong> 1 mile is equal to 1.6 km (approximately) and 1 km is
+            equal to 3281 ft (approximately). Then, conditions are checked and the result is displayed in the console as
+            the followings:
+          </p>
+          <p>
+          <ul class="list-outside list-none space-y-3 indent-1 ml-4">
+            <li class="lightgreen-list-item mt-3 mr-4">convertLength(5, 'miles', 'km') => '8 km'</li>
+            <li class="lightgreen-list-item mt-3 mr-4">convertLength(5, 'miles', 'ft') => '26400 ft'</li>
+            <li class="lightgreen-list-item mt-3 mr-4">convertLength(5, 'km', 'ft') => '16405 ft'</li>
+          </ul>
+          </p>
+        </div>
+        <br />
+        <div>
+          <p>
+            With the exercise 7i, update the 'convertLength' function so that if you give an invalid unit, it will
+            return `Invalid unit: ${unit}`. Then, conditions are checked and the result is displayed in the console as
+            the followings:
+          </p>
+          <p>
+          <ul class="list-outside list-none space-y-3 indent-1 ml-4">
+            <li class="lightgreen-list-item mt-3 mr-4">convertLength(5, 'lbs', 'lbs') => 'Invalid unit: lbs'</li>
+        </div>
+    </header>
+    <main>
+      <section>
+        <div class="bg-gray-700 dark:bg-gray-800 rounded-lg border border-gray-700 mt-3 p-4">
+          <h2 class="font-bold hidden">Exercise </h2>
+          <div class="flex justify-center items-center">
+            <section
+              class="bg-primary w-full h-full p-4 m-auto rounded-lg shadow-lg border-2 border-gray-200 text-white font-pregular text-lg mt-1 mb-6 dark:border-gray-700 dark:bg-gray-800">
+              <h2 class="text-2xl font-bold tracking-tight text-blue-400">
+                Output Ground:
+              </h2>
+              <hr class="mt-4 line-clamp-1" />
+              <div id="log" class="flex flex-col justify-between border-2 border-gray-600 mt-2 rounded-lg sm:rounded-sm md:rounded-md shadow indent-3 leading-normal object-cover w-full m-auto font-normal
+                text-gray-700 dark:text-gray-400">
+                <h3 id="title">
+                </h3>
+              </div>
+            </section>
+          </div>
+          <div class="flex justify-end items-end">
+            <button class="back-to-home-button text-white bg-blue-600" title="Back to home"
+              onclick="window.location.href = `${window.location.origin}/index.html`">
+              Back to home
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div
+        class="p-4 flex flex-col items-start justify-start mt-4 rounded-lg shadow border-2 border-gray-700 dark:border-gray-800 bg-gray-700 dark:bg-gray-800">
+        <p class="font-bold hidden">Footer</p>
+        <p class="text-right">
+          Copyright &copy; <span class="text-red-500" id="year"></span>
+        </p>
+        <p class="text-right">All Rights Reserved</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    // Capture the original console.log function
+    const originalLog = console.log;
+
+    // Display Title for the log messages in the console and style them
+    const title = 'Exercise 7g, 7h, and 7i | Function on Length Conversion';
+    const titleElement = document.createElement('h1');
+    titleElement.style = 'background-color: #161622; font-size: 1.5em; font-weight: bold; color: darkorange; text-align: center; padding: 5px; height: 2em; justify-content: center; align-items: center; display: flex;';
+    document.getElementById('title').appendChild(titleElement);
+    titleElement.textContent = title;
+    // Override the console.log function
+    console.log = (...messages) => {
+      // Call the original console.log function to keep the log in the console
+      originalLog.apply(console, messages);
+
+      // Convert messages to a string and append them to the div
+      const logDiv = document.getElementById('log');
+      if (logDiv) {
+        messages.forEach((message) => {
+          const messageElement = document.createElement('div');
+          // Style the log messages
+          const style = 'background-color: #161622; color: whitesmoke; font-weight: normal; font-style: normal; font-size: 1em; text-align: left; padding: 5px; margin: 1px; border-radius: 5px;';
+          messageElement.style = style;
+          messageElement.textContent = message.toString();
+          logDiv.appendChild(messageElement);
+        });
+      }
+    };
+    /* /////////////////////////////////////////////// */
+    // Footer year
+    const year = document.getElementById('year');
+    const currentYear = new Date().getFullYear();
+    // year.setAttribute('daretime', currentYear.toString());
+    year.setAttribute('datetime', currentYear.toString());
+    year.textContent = currentYear.toString();
+    /* /////////////////////////////////////////////////// */
+
+
+    console.log("// Exercise 7g Convert Length");
+    function convertLength(length, from, to) {
+      if (from === 'km' && to === 'miles') {
+        return `${length / 1.6} miles`;
+      } else if (from === 'miles' && to === 'km') {
+        return `${length * 1.6} km`;
+
+        // You can also do if (from === 'km' && to === 'km) { ... }
+        // if (from === to) is a trick you can use to save some code.
+      } else if (from === to) {
+        return `${length} ${to}`;
+      }
+    }
+
+    console.log(convertLength(50, 'miles', 'km')); // Output: 80 km
+    console.log(convertLength(32, 'km', 'miles')); // Output: 20 miles
+    console.log(convertLength(50, 'km', 'km')); // Output: 50 km
+
+    console.log("// Exercise 7h Convert Length");
+    function convertLength1(length, from, to) {
+      if (from === 'km' && to === 'miles') {
+        return `${length / 1.6} ${to}`;
+
+      } else if (from === 'km' && to === 'ft') {
+        return `${length * 3281} ${to}`;
+
+      } else if (from === 'miles' && to === 'km') {
+        return `${length * 1.6} ${to}`;
+
+      } else if (from === 'miles' && to === 'ft') {
+        return `${length * 5280} ${to}`;
+
+      } else if (from === 'ft' && to === 'km') {
+        return `${length / 3281} ${to}`;
+
+      } else if (from === 'ft' && to === 'miles') {
+        return `${length / 5280} ${to}`;
+
+        // You can also do if (from === 'km' && to === 'km) { ... }
+        // if (from === to) is a trick you can use to save some code.
+      } else if (from === to) {
+        return `${length} ${to}`;
+      }
+    }
+
+    console.log(convertLength1(5, 'miles', 'km')); // Output: 8 km
+    console.log(convertLength1(5, 'miles', 'ft')); // Output: 26400 ft
+    console.log(convertLength1(5, 'km', 'ft')); // Output: 16405 ft
+
+    console.log("// Exercise 7i Convert Length");
+    function convertLength2(length, from, to) {
+      // I like to put invalid checks at the top since it's a bit
+      // easier to see. Also, if something is invalid, we can skip
+      // the rest of the function.
+      if (from !== 'km' && from !== 'miles' && from !== 'ft') {
+        return `Invalid unit: ${from}`;
+      } else if (to !== 'km' && to !== 'miles' && to !== 'ft') {
+        return `Invalid unit: ${to}`;
+      }
+
+      if (from === 'km' && to === 'miles') {
+        return `${length / 1.6} ${to}`;
+
+      } else if (from === 'km' && to === 'ft') {
+        return `${length * 3281} ${to}`;
+
+      } else if (from === 'miles' && to === 'km') {
+        return `${length * 1.6} ${to}`;
+
+      } else if (from === 'miles' && to === 'ft') {
+        return `${length * 5280} ${to}`;
+
+      } else if (from === 'ft' && to === 'km') {
+        return `${length / 3281} ${to}`;
+
+      } else if (from === 'ft' && to === 'miles') {
+        return `${length / 5280} ${to}`;
+
+        // You can also do if (from === 'km' && to === 'km) { ... }
+        // if (from === to) is a trick you can use to save some code.
+      } else if (from === to) {
+        return `${length} ${to}`;
+      }
+    }
+
+    console.log(convertLength(5, 'lbs', 'lbs')); // Output: Invalid unit: lbs
+
+  </script>
+</body>
+
+</html>
